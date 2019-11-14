@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="css/bootstrap.2.3.2.min.css" rel="stylesheet">
+  <title>샘플 페이지</title>
+
+</head>
+<body >
+
+
+    <div class="container" id="app">
+        <h1>이벤트 전송 테스트</h1>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">navigator.userAgent</div>
+            <div class="panel-body">
+              <script> document.write(navigator.userAgent)</script>
+            </div>
+        </div>
+
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item sendBroadcast">
+                <div class="row">
+                    <div class="col-lg-3">
+                        Android.sendBroadcast(action,data)
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="input-group">
+                        <span class="input-group-addon">action</span>
+                        <input type="text" class="form-control action" value="com.homelearn.xxx">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="input-group">
+                        <span class="input-group-addon">data</span>
+                        <input type="text" class="form-control data" value="a=1&b=2&c=3">
+                      </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <button onclick="wrapper.sendBroadcast()" class="btn btn-primary">Call !</button>
+                    </div>
+                </div><!-- /.row -->
+            </li>
+          </ul>
+        </div>
+      </div>
+
+  <script src="js/vue.js"></script>
+  <script src="js/jquery-1.12.4.min.js"></script>
+
+  <script>
+    var wrapper={
+      sendBroadcast:function(){
+        var action = document.querySelector(".sendBroadcast .action").value;
+        var data = document.querySelector(".sendBroadcast .data").value;
+        window.Android.sendBroadcast(action,data);
+      },
+    };
+
+
+  </script>
+</body>
+</html>
